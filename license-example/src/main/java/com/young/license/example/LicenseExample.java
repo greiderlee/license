@@ -108,10 +108,10 @@ public class LicenseExample {
 		 * 将公钥库导入到classpath
 		 */
 		FileUtils.mvFile(publicStoreFile, publicStoreDest);
-		FileUtils.rmFile(publicStoreFile);
+		//FileUtils.rmFile(publicStoreFile);
 	    PublicParam publicParam = new PublicParam(privateStorePass, LicenseVerify.class, "/"+publicStoreDest.getName(), publicAlias, subjuct);
 		//加载license
-	    LicenseVerify verify = new LicenseVerify(publicParam,licensePath);
+	    LicenseVerify verify = new LicenseVerify(publicParam,"E:\\mac.license");
 		//验证1000次,貌似时间还挺快
 		for(int i=0;i<1000;i++){
 		long now = System.currentTimeMillis();

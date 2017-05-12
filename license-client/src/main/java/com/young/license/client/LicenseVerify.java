@@ -14,13 +14,11 @@ public class LicenseVerify {
 	private PublicParam param;
 
 	public LicenseVerify(PublicParam param, String licPath) throws Exception {
-		this(param,new File(licPath));
+		this.param = param;
+//		String path =  Thread.currentThread().getContextClassLoader().getResource(licPath).getPath();
+		install(new File(licPath));
 	}
 
-	public LicenseVerify(PublicParam param, File licFile) throws Exception {
-		this.param = param;
-		install(licFile);
-	}
 
 	private void install(File licFile) throws Exception {
 		LicenseManagerClient.getLicenseManager(param.bulidLicenseParams())
